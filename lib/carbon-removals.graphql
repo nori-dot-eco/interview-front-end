@@ -1,0 +1,13 @@
+query CarbonRemovals {
+  carbonRemovals {
+    id
+    quantity
+  }
+}
+
+mutation allocateRemovalsToOrder($orderQuantity: Float!) {
+  allocateRemovalsToOrder(orderQuantity: $orderQuantity) {
+    id
+    quantity
+  }
+}

@@ -1,0 +1,18 @@
+type AllocatedRemoval {
+  id: ID!
+  quantity: Float!
+}
+
+type CarbonRemovals {
+  id: ID!
+  quantity: Float!
+}
+
+type Query {
+  carbonRemovals: [CarbonRemovals]
+}
+
+type Mutation {
+  # Write the graphql definition for your mutation here
+  allocateRemovalsToOrder(orderQuantity: Float!): [AllocatedRemoval]
+}
