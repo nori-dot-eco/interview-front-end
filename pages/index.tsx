@@ -1,21 +1,20 @@
-import Link from 'next/link';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import {
-  CarbonRemovalsQuery,
   useCarbonRemovalsQuery,
   useAllocateRemovalsToOrderMutation,
   CarbonRemovalsDocument,
-} from '../lib/carbon-removals.graphql';
-import { initializeApollo } from '../lib/apollo';
+} from './graphql/index.graphql';
+import { initializeApollo } from 'lib/apollo';
+import { Header } from 'components/header';
 
 const Index = () => {
   const { carbonRemovals } = useCarbonRemovalsQuery().data!;
+  console.log(carbonRemovals);
   const [orderQuantity, setOrderQuantity] = useState(1);
-  const [allocatedCarbonRemovals, setAllocatedCarbonRemovals] = useState([]);
   const [allocateRemovalsToOrderMutation] =
     useAllocateRemovalsToOrderMutation();
 
-  const onClickSubmit = async () => {
+  const handleSubmit = async () => {
     const result = await allocateRemovalsToOrderMutation({
       variables: {
         orderQuantity,
@@ -25,29 +24,9 @@ const Index = () => {
   };
 
   return (
-    <div>
-      <h1>Front-end interview</h1>
-      <input
-        type="number"
-        placeholder="Quantity for order..."
-        onChange={(e) => setOrderQuantity(parseFloat(e.target.value))}
-      />
-      <button type="button" onClick={onClickSubmit}>
-        Submit
-      </button>
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Quantity</th>
-        </tr>
-        {carbonRemovals.map((carbonRemoval) => (
-          <tr>
-            <td>{carbonRemoval.id}</td>
-            <td>{carbonRemoval.quantity}</td>
-          </tr>
-        ))}
-      </table>
-    </div>
+    <Fragment>
+      <Header />
+    </Fragment>
   );
 };
 

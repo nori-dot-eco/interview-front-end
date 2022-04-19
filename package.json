@@ -7,7 +7,6 @@
     "test": "yarn codegen && jest --watch",
     "test-algorithm": "jest allocateRemovalsToOrder.test.ts --watch",
     "test-front-end": "yarn codegen && jest front-end.test.ts --watch",
-    "test-back-end": "yarn codegen && jest back-end.test.ts --watch",
     "start": "next start"
   },
   "dependencies": {
