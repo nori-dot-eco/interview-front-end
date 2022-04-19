@@ -19,7 +19,6 @@ export const allocateRemovalsToOrder = async ({
     process.cwd() + '/lib/removals.csv'
   )) as CarbonRemoval[];
   console.log(csvData);
-  // START WRITING YOUR CODE HERE
   let quantityToAllocate = orderQuantity;
   const result = csvData.reduce<AllocatedRemoval[]>(
     (allocatedRemovals, currentRemoval) => {
