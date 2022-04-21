@@ -10,13 +10,9 @@ Based on the premise of the order matching algorithm we worked on in the intervi
 
 ### Part 1
 
-Given the result from a query to the server, render a list of the available supply of carbon removals.
-
-### Part 2
-
 Create a form with an input for customers to select how many tonnes of carbon removals they want to purchase, and a button to submit the request.
 
-### Part 3
+### Part 2
 
 After the customer has submitted their order, update the list of available supply based on the response from the server.
 

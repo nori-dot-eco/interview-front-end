@@ -26,6 +26,18 @@ const Index = () => {
   return (
     <Fragment>
       <Header />
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Quantity</th>
+        </tr>
+        {carbonRemovals.map((carbonRemoval) => (
+          <tr>
+            <td>{carbonRemoval.id}</td>
+            <td>{carbonRemoval.quantity}</td>
+          </tr>
+        ))}
+      </table>
     </Fragment>
   );
 };
